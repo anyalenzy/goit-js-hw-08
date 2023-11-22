@@ -85,12 +85,6 @@ const addGalleryitems = createGallery(images);
 const gallery = document.querySelector(".gallery");
 gallery.insertAdjacentHTML("afterbegin", addGalleryitems);
 
-function closeImg(event) {
-  if (event.code === "Escape") {
-    instance.close();
-  }
-}
-
 function onImgClick(event) {
   event.preventDefault();
   if (event.target.nodeName !== "IMG") {
@@ -110,6 +104,12 @@ function onImgClick(event) {
     }
   );
   instance.show();
+
+  function closeImg(event) {
+    if (event.code === "Escape") {
+      instance.close();
+    }
+  }
 }
 
 gallery.addEventListener("click", onImgClick);
